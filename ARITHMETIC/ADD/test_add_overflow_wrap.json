@@ -1,0 +1,45 @@
+cat > ethereum-fixtures/stable/state_tests/cancun/eip_edge_cases/test_add_overflow_wrap.json << 'EOF'
+{
+  "test_add_overflow_wrap[fork_Cancun-state_test]": {
+    "_info": {
+      "comment": "ADD max_uint256 + 1 should wrap to 0",
+      "filling-rpc-server": "evm",
+      "source": "edge"
+    },
+    "env": {
+      "currentCoinbase": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+      "currentGasLimit": "0x055d4a80",
+      "currentNumber": "0x01",
+      "currentTimestamp": "0x03e8",
+      "currentBaseFee": "0x07"
+    },
+    "pre": {
+      "0x1000000000000000000000000000000000000100": {
+        "nonce": "0x01",
+        "balance": "0x00",
+        "code": "0x60017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff01600055",
+        "storage": {}
+      }
+    },
+    "transaction": {
+      "nonce": "0x00",
+      "gasPrice": "0x0a",
+      "gasLimit": ["0x4c4b40"],
+      "to": "0x1000000000000000000000000000000000000100",
+      "value": ["0x00"],
+      "data": ["0x"]
+    },
+    "post": {
+      "Cancun": [{
+        "state": {
+          "0x1000000000000000000000000000000000000100": {
+            "storage": {
+              "0x00": "0x00"
+            }
+          }
+        }
+      }]
+    }
+  }
+}
+EOF
