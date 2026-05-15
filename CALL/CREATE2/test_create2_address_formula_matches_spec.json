@@ -1,0 +1,82 @@
+{
+  "test_create2_address_formula_matches_spec[fork_Cancun-state_test]": {
+    "_info": {
+      "comment": "CREATE2 address must match EIP-1014 formula",
+      "filling-rpc-server": "evm",
+      "filling-tool-version": "1.0",
+      "generatedTestHash": "0x00",
+      "lllcversion": "N/A",
+      "solidity": "N/A",
+      "source": "hand-assembled",
+      "sourceHash": "0x00"
+    },
+
+    "env": {
+      "currentCoinbase": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+      "currentGasLimit": "0x7a1200",
+      "currentNumber": "0x01",
+      "currentTimestamp": "0x03e8",
+      "currentDifficulty": "0x00"
+    },
+
+    "pre": {
+
+      "0xdead00000000000000000000000000000000beef": {
+        "nonce": "0x01",
+        "balance": "0x00",
+
+        "code": "0x60006000536042600160006000f560005260206000f300",
+
+        "storage": {}
+      },
+
+      "0x766b923079c2900993bafa89b07d66423481776e": {
+        "nonce": "0x00",
+        "balance": "0xde0b6b3a7640000",
+        "code": "0x",
+        "storage": {}
+      }
+    },
+
+    "transaction": {
+      "nonce": "0x00",
+      "gasPrice": "0x0a",
+      "gasLimit": ["0x7a1200"],
+
+      "to": "0xdead00000000000000000000000000000000beef",
+
+      "value": ["0x00"],
+      "data": ["0x"],
+
+      "sender": "0x766b923079c2900993bafa89b07d66423481776e",
+
+      "secretKey": "0xf792f84d3860ff35b56caae61ad41edb9130201ba8476168bcbf9bafe279f89d"
+    },
+
+    "post": {
+      "Cancun": [
+        {
+          "hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+
+          "logs": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+
+          "txbytes": "0x",
+
+          "indexes": {
+            "data": 0,
+            "gas": 0,
+            "value": 0
+          },
+
+          "state": {
+
+            "0x4b5410ccc1ffa23b07d2e8d891c4dc37c900ec86": {
+              "nonce": "0x01"
+            }
+
+          }
+        }
+      ]
+    }
+  }
+}
