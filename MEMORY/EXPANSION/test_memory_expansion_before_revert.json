@@ -1,0 +1,96 @@
+{
+  "test_memory_expansion_before_revert[fork_Cancun-state_test]": {
+    "_info": {
+      "comment": "Memory expansion cost must be charged before REVERT executes",
+
+      "filling-rpc-server": "evm",
+      "filling-tool-version": "1.0",
+      "generatedTestHash": "0x00",
+      "lllcversion": "0.5.14",
+      "solidity": "0.8.17",
+      "source": "edge",
+      "sourceHash": "0x00"
+    },
+
+    "env": {
+      "currentCoinbase": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+      "currentGasLimit": "0x055d4a80",
+      "currentNumber": "0x01",
+      "currentTimestamp": "0x03e8",
+      "currentRandom": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "currentDifficulty": "0x00",
+      "currentBaseFee": "0x07",
+      "currentExcessBlobGas": "0x00"
+    },
+
+    "pre": {
+
+      "0x1000000000000000000000000000000000000f10": {
+
+        "nonce": "0x01",
+
+        "balance": "0x00",
+
+        "code": "0x63ffffff006001fd600160005500",
+
+        "storage": {}
+      },
+
+      "0x766b923079c2900993bafa89b07d66423481776e": {
+
+        "nonce": "0x00",
+
+        "balance": "0x6124fee993bc0000",
+
+        "code": "0x",
+
+        "storage": {}
+      }
+    },
+
+    "transaction": {
+
+      "nonce": "0x00",
+
+      "gasPrice": "0x0a",
+
+      "gasLimit": ["0x1000000"],
+
+      "to": "0x1000000000000000000000000000000000000f10",
+
+      "value": ["0x00"],
+
+      "data": ["0x"],
+
+      "sender": "0x766b923079c2900993bafa89b07d66423481776e",
+
+      "secretKey": "0xf792f84d3860ff35b56caae61ad41edb9130201ba8476168bcbf9bafe279f89d"
+    },
+
+    "post": {
+      "Cancun": [
+        {
+          "hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+
+          "logs": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+
+          "txbytes": "0x",
+
+          "indexes": {
+            "data": 0,
+            "gas": 0,
+            "value": 0
+          },
+
+          "state": {
+
+            "0x1000000000000000000000000000000000000f10": {
+
+              "storage": {}
+            }
+          }
+        }
+      ]
+    }
+  }
+}
