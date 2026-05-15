@@ -1,0 +1,104 @@
+{
+  "test_mcopy_overlapping_regions_forward[fork_Cancun-state_test]": {
+    "_info": {
+      "comment": "MCOPY overlapping regions must behave like memmove and not corrupt overlapping copies",
+      "filling-rpc-server": "evm",
+      "filling-tool-version": "1.0",
+      "generatedTestHash": "0x00",
+      "lllcversion": "N/A",
+      "solidity": "N/A",
+      "source": "hand-assembled",
+      "sourceHash": "0x00"
+    },
+
+    "env": {
+      "currentCoinbase": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+      "currentGasLimit": "0x7a1200",
+      "currentNumber": "0x01",
+      "currentTimestamp": "0x03e8",
+      "currentDifficulty": "0x00",
+      "currentBaseFeePerGas": "0x07"
+    },
+
+    "pre": {
+
+      "0x1000000000000000000000000000000000000001": {
+
+        "nonce": "0x01",
+
+        "balance": "0x00",
+
+        "code": "0x7f00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff6000526010600060085e60005160015560206000f3",
+
+        "storage": {}
+      },
+
+      "0x766b923079c2900993bafa89b07d66423481776e": {
+
+        "nonce": "0x00",
+
+        "balance": "0xde0b6b3a7640000",
+
+        "code": "0x",
+
+        "storage": {}
+      }
+    },
+
+    "transaction": {
+
+      "nonce": "0x00",
+
+      "gasPrice": "0x0a",
+
+      "gasLimit": ["0x7a1200"],
+
+      "to": "0x1000000000000000000000000000000000000001",
+
+      "value": ["0x00"],
+
+      "data": ["0x"],
+
+      "sender": "0x766b923079c2900993bafa89b07d66423481776e",
+
+      "secretKey":
+      "0xf792f84d3860ff35b56caae61ad41edb9130201ba8476168bcbf9bafe279f89d"
+    },
+
+    "post": {
+      "Cancun": [
+        {
+          "hash":
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+
+          "logs":
+          "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+
+          "txbytes": "0x",
+
+          "indexes": {
+            "data": 0,
+            "gas": 0,
+            "value": 0
+          },
+
+          "out":
+          "0x001122334455667700112233445566778899aabbccddeeff8899aabbccddeeff",
+
+          "state": {
+
+            "0x1000000000000000000000000000000000000001": {
+
+              "storage": {
+
+                "0x0000000000000000000000000000000000000000000000000000000000000001":
+                "0x001122334455667700112233445566778899aabbccddeeff8899aabbccddeeff"
+
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
