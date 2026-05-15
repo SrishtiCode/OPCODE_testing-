@@ -1,0 +1,99 @@
+{
+  "test_log4_four_topics_success[fork_Cancun-state_test]": {
+    "_info": {
+      "comment": "LOG4 with four valid topics must succeed",
+
+      "filling-rpc-server": "evm",
+      "filling-tool-version": "1.0",
+      "generatedTestHash": "0x00",
+      "lllcversion": "0.5.14",
+      "solidity": "0.8.17",
+      "source": "edge",
+      "sourceHash": "0x00"
+    },
+
+    "env": {
+      "currentCoinbase": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+      "currentGasLimit": "0x055d4a80",
+      "currentNumber": "0x01",
+      "currentTimestamp": "0x03e8",
+      "currentRandom": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "currentDifficulty": "0x00",
+      "currentBaseFee": "0x07",
+      "currentExcessBlobGas": "0x00"
+    },
+
+    "pre": {
+
+      "0x1000000000000000000000000000000000000e80": {
+
+        "nonce": "0x01",
+
+        "balance": "0x00",
+
+        "code": "0x600460036002600160006000a4600160005500",
+
+        "storage": {}
+      },
+
+      "0x766b923079c2900993bafa89b07d66423481776e": {
+
+        "nonce": "0x00",
+
+        "balance": "0x6124fee993bc0000",
+
+        "code": "0x",
+
+        "storage": {}
+      }
+    },
+
+    "transaction": {
+
+      "nonce": "0x00",
+
+      "gasPrice": "0x0a",
+
+      "gasLimit": ["0x200000"],
+
+      "to": "0x1000000000000000000000000000000000000e80",
+
+      "value": ["0x00"],
+
+      "data": ["0x"],
+
+      "sender": "0x766b923079c2900993bafa89b07d66423481776e",
+
+      "secretKey": "0xf792f84d3860ff35b56caae61ad41edb9130201ba8476168bcbf9bafe279f89d"
+    },
+
+    "post": {
+      "Cancun": [
+        {
+          "hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+
+          "logs": "0x6c6f7a5db5b0b5cdb34d0d5a4dbcb5f87fcdcbf6c9248e2d1f91f6f74f7ab9f1",
+
+          "txbytes": "0x",
+
+          "indexes": {
+            "data": 0,
+            "gas": 0,
+            "value": 0
+          },
+
+          "state": {
+
+            "0x1000000000000000000000000000000000000e80": {
+
+              "storage": {
+                "0x0000000000000000000000000000000000000000000000000000000000000000":
+                "0x0000000000000000000000000000000000000000000000000000000000000001"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
