@@ -1,7 +1,7 @@
 {
   "test_create_constructor_storage_revert[fork_Cancun-state_test]": {
     "_info": {
-      "comment": "CREATE constructor performs SSTORE then REVERTs; constructor storage writes must rollback completely",
+      "comment": "CREATE constructor executes SSTORE then REVERTs; constructor storage writes must rollback completely",
 
       "filling-rpc-server": "evm",
       "filling-tool-version": "1.0",
@@ -31,7 +31,7 @@
 
         "balance": "0x00",
 
-        "code": "0x69600160005560006000fd60005260006016600af0600160005500",
+        "code": "0x69600160005560006000fd600052600a60166000f0600160005500",
 
         "storage": {}
       },
