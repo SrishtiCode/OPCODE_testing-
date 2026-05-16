@@ -1,0 +1,127 @@
+cat > ethereum-fixtures/stable/state_tests/cancun/eip_edge_cases/test_warmness_rollback_diff_halts.json << 'EOF'
+{
+  "test_warmness_rollback_diff_halts[fork_Cancun-state_test]": {
+    "_info": {
+      "comment": "Warm account accesses inside reverted frames must rollback for REVERT INVALID and OOG",
+
+      "filling-rpc-server": "evm",
+      "filling-tool-version": "1.0",
+      "generatedTestHash": "0x00",
+      "lllcversion": "0.5.14",
+      "solidity": "0.8.17",
+      "source": "edge",
+      "sourceHash": "0x00"
+    },
+
+    "env": {
+      "currentCoinbase": "0x2adc25665018aa1fe0e6bc666dac8fc2697ff9ba",
+      "currentGasLimit": "0x05f5e100",
+      "currentNumber": "0x01",
+      "currentTimestamp": "0x03e8",
+      "currentRandom": "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "currentDifficulty": "0x00",
+      "currentBaseFee": "0x07",
+      "currentExcessBlobGas": "0x00"
+    },
+
+    "pre": {
+
+      "0x1111111111111111111111111111111111111111": {
+        "nonce": "0x01",
+        "balance": "0x00",
+
+        "code": "0x60005460006000fd",
+
+        "storage": {
+          "0x00": "0x01"
+        }
+      },
+
+      "0x2222222222222222222222222222222222222222": {
+        "nonce": "0x01",
+        "balance": "0x00",
+
+        "code": "0x600054fe",
+
+        "storage": {
+          "0x00": "0x01"
+        }
+      },
+
+      "0x3333333333333333333333333333333333333333": {
+        "nonce": "0x01",
+        "balance": "0x00",
+
+        "code": "0x5b600054600056",
+
+        "storage": {
+          "0x00": "0x01"
+        }
+      },
+
+      "0xcccccccccccccccccccccccccccccccccccccccc": {
+        "nonce": "0x01",
+        "balance": "0x00",
+
+        "code": "0x60006000600060006000600073111111111111111111111111111111111111111161fffff16000600060006000600060007311111111111111111111111111111111111111116001f160005560006000600060006000600073222222222222222222222222222222222222222261fffff16000600060006000600060007322222222222222222222222222222222222222226001f160015560006000600060006000600073333333333333333333333333333333333333333361fffff16000600060006000600060007333333333333333333333333333333333333333336001f160025500",
+
+        "storage": {}
+      },
+
+      "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b": {
+        "nonce": "0x00",
+        "balance": "0xde0b6b3a7640000",
+
+        "code": "0x",
+
+        "storage": {}
+      }
+    },
+
+    "transaction": {
+
+      "nonce": "0x00",
+
+      "gasPrice": "0x0a",
+
+      "gasLimit": ["0x500000"],
+
+      "to": "0xcccccccccccccccccccccccccccccccccccccccc",
+
+      "value": ["0x00"],
+
+      "data": ["0x"],
+
+      "sender": "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b",
+
+      "secretKey": "0x45a915e4d060149eb4365960e6a7a45f334393093061116b197e3240065ff2d8"
+    },
+
+    "post": {
+      "Cancun": [
+        {
+          "hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+
+          "logs": "0x0000000000000000000000000000000000000000000000000000000000000000",
+
+          "txbytes": "0x",
+
+          "indexes": {
+            "data": 0,
+            "gas": 0,
+            "value": 0
+          },
+
+          "state": {}
+        }
+      ]
+    }
+  }
+}
+EOF
+
+cargo run --bin evm-tester -- --update_indexes && \
+cargo run --bin evm-tester -- \
+--path "eip_edge_cases" \
+--name "test_warmness_rollback_diff_halts[fork_Cancun-state_test]" \
+2>&1 | tail -120
